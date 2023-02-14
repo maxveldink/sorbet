@@ -64,3 +64,6 @@ T.assert_type!([1, 2].to_set, T::Set[T.untyped])
 arr = [1, 2, 3]
 T.assert_type!(arr.intersection([3, 5]), T::Array[Integer])
 T.assert_type!(arr.intersect?([2, 7]), T::Boolean)
+
+x = [[1, "a"], [2, "b"]]
+T.reveal_type(x.transpose) # error: Revealed type: `[T::Array[Integer], T::Array[String]] (2-tuple)`
